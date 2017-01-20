@@ -13,7 +13,7 @@ from definitions.qpx import QPXServiceDefinitions, QPXSeachRequestDefinitions
 
 qpx_service = build(QPXServiceDefinitions.QPXServiceName,
                     QPXServiceDefinitions.QPXServiceVersionName,
-                    developerKey="AIzaSyC9Re5Ot-igwLNmELJbzgt_9oDEJ-9A-ac")
+                    developerKey="REDACTED")
 
 search = qpx_service.trips().search
 
