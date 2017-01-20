@@ -14,9 +14,11 @@ Chalo is a vacation discovery software that periodically builds travel plans to 
   * ```pip install -r requirements.txt```
 
 ## Bash Aliases
-
 Add these to your ~/.bash_profile
 
 ```bash
-alias chalo="cd <path_to_repo>;source cenv/bin/activate;"
+export CHALO_ROOT="~/dev/Chalo"
+alias chalo="cd $CHALO_ROOT;source cenv/bin/activate;"
+alias chalo-savereqs="cd $CHALO_ROOT;source cenv/bin/activate;pip freeze > requirements.txt;"
+alias chalo-loadreqs="cd $CHALO_ROOT;source cenv/bin/activate;pip install -r requirements.txt;"
 ```
