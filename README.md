@@ -22,3 +22,11 @@ alias chalo="cd $CHALO_ROOT;source cenv/bin/activate;"
 alias chalo-savereqs="cd $CHALO_ROOT;source cenv/bin/activate;pip freeze > requirements.txt;"
 alias chalo-loadreqs="cd $CHALO_ROOT;source cenv/bin/activate;pip install -r requirements.txt;"
 ```
+
+## Common Workflows
+#### Adding third-party python module using pip
+```bash
+chalo
+pip install <options> <module name>
+chalo-savereqs
+```
