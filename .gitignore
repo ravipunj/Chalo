@@ -8,6 +8,7 @@
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
+cenv/man/*
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
