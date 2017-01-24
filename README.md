@@ -1,4 +1,4 @@
-# Chalo
+# Chalo [![Build Status](https://travis-ci.org/ravipunj/Chalo.svg?branch=master)](https://travis-ci.org/ravipunj/Chalo)
 Chalo is a vacation discovery software that periodically builds travel plans to satisfy criteria inputted and ranks them.
 
 
