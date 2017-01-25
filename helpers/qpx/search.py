@@ -92,6 +92,66 @@ class QPXSearchRequest(object):
         return {"request": search_request}
 
 
+class QPXSearchResponse(object):
+    """
+    Class for parsing QPX Express by Google search query response.
+    """
+
+    @staticmethod
+    def _parse_trip_options(trip_options_list):
+        """
+        Parses self._response_dict.trips.tripOption
+        :param trip_options_list: (list) List of dictionaries representing trip options
+        :return: (list) List of simplified and parsed dictionary representations for trip options in
+                        trip_options_list
+        """
+        return map(QPXSearchResponse._parse_trip_option_dict, trip_options_list)
+
+    @staticmethod
+    def _parse_trip_option_dict(trip_option_dict):
+        """
+        Parses a trip option dictionary representation
+        :param trip_option_dict: (dict) Dictionary representation of a trip option
+                                        from the response object
+        :return: (dict) Simplified and parsed dictionary representation of trip option
+        """
+        trip_option = {
+            "sale_total": float(trip_option_dict["saleTotal"][3:]),
+        }
+
+        return trip_option
+
+    def __init__(self, response_dict):
+        """
+        Constructs a QPXSearchResponse object that represents a response to a QPX Express by Google
+        trips.search() request.
+        :param response_dict: (dict) Response dictionary
+        """
+        self._response_dict = response_dict
+        self._trip_options = None
+
+        self._process_response_dict()
+
+    def _process_response_dict(self):
+        """
+        Parses self._response_dict
+        """
+        assert self._response_dict
+
+        self._trip_options = self._parse_trip_options(self._response_dict["trips"]["tripOption"])
+
+    @property
+    def count_of_trip_options(self):
+        """
+        Number of trip options in response
+        :return: (int)
+        """
+        assert self._response_dict
+        assert self._trip_options
+
+        return len(self._trip_options)
+
+
 def create_search_request(origin,
                           destination,
                           departure_date,
